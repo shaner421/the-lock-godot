@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cwa0li172moh8"]
+
+[ext_resource type="PackedScene" uid="uid://bdowrroso0p18" path="res://assets/Meshes/tumbler.fbx" id="1_jp45j"]
+[ext_resource type="Script" uid="uid://buu4xwu67mvn6" path="res://the-lock/tumbler.gd" id="2_787sp"]
+[ext_resource type="PackedScene" uid="uid://bfaxeibxstpi0" path="res://assets/Meshes/spring.fbx" id="2_akcnn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jp45j"]
+albedo_color = Color(0.96939677, 0.6768571, 0.33642372, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akcnn"]
+albedo_color = Color(0.41419008, 0.1945191, 0.123146646, 1)
+
+[node name="tumbler" unique_id=2053732499 node_paths=PackedStringArray("spring", "tumbler", "tumbler_target") instance=ExtResource("1_jp45j")]
+script = ExtResource("2_787sp")
+spring = NodePath("spring/Spring")
+tumbler = NodePath("Tumbler")
+tumbler_target = NodePath("spring/Spring/tumbler_target")
+
+[node name="Tumbler" parent="." index="0" unique_id=1473687788]
+material_override = SubResource("StandardMaterial3D_jp45j")
+
+[node name="spring" parent="." index="1" unique_id=1695229471 instance=ExtResource("2_akcnn")]
+transform = Transform3D(1, 2.3841858e-07, 0, -2.3841858e-07, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Spring" parent="spring" index="0" unique_id=1605196940]
+material_override = SubResource("StandardMaterial3D_akcnn")
+
+[node name="tumbler_target" type="Node3D" parent="spring/Spring" index="0" unique_id=323874487]
+transform = Transform3D(1, -2.3841858e-07, 0, 2.3841858e-07, 1, 0, 0, 0, 1, 4.7683716e-07, -2, 0)
+
+[editable path="spring"]

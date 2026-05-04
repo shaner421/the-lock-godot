@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://jj4gx5plbdek"]
+
+[ext_resource type="PackedScene" uid="uid://d34ysfn1cubae" path="res://the-lock/lock.tscn" id="1_d6po2"]
+[ext_resource type="Script" uid="uid://1jm0x7ytoiqp" path="res://demo/demo.gd" id="1_ytiva"]
+
+[node name="Demo" type="Node3D" unique_id=1266166283]
+script = ExtResource("1_ytiva")
+
+[node name="Lock" parent="." unique_id=2082513504 instance=ExtResource("1_d6po2")]
+lockpick_speed = 3.0
+lockpick_base_height = 1.0
+lockpick_picking_height = 2.0
+number_of_tumblers = 5
+tumbler_spacing = 1.0
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1773411399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.455997, 5.5510674)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1609258275]
+transform = Transform3D(1, 0, 0, 0, 0.808288, 0.5887873, 0, -0.5887873, 0.808288, 0, 0, 0)
+
+[connection signal="on_lock_picked" from="Lock" to="." method="_on_lock_on_lock_picked"]

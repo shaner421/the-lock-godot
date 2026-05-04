@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bauot6jcc028p"]
+
+[ext_resource type="PackedScene" uid="uid://d2y0dyoy2sk7v" path="res://assets/Meshes/lockpick.fbx" id="1_rkd72"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rkd72"]
+albedo_color = Color(0.35906908, 0.35906908, 0.35906908, 1)
+
+[node name="lockpick" unique_id=1367998247 instance=ExtResource("1_rkd72")]
+
+[node name="Lockpick" parent="." index="0" unique_id=1024194434]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_rkd72")

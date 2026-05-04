@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://d34ysfn1cubae"]
+
+[ext_resource type="Script" uid="uid://dprrgj4bh2f0g" path="res://the-lock/lock.gd" id="1_w7qgh"]
+[ext_resource type="PackedScene" uid="uid://bauot6jcc028p" path="res://the-lock/lockpick.tscn" id="3_52hjv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2tnk"]
+albedo_color = Color(0.7004857, 0.7642194, 0.71027416, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jxv33"]
+size = Vector2(10, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j7llt"]
+size = Vector3(10, 2, 3)
+
+[node name="Lock" type="Node3D" unique_id=2082513504 node_paths=PackedStringArray("tumbler_origin", "lockpick", "lockpick_target")]
+script = ExtResource("1_w7qgh")
+tumbler_origin = NodePath("tumbler_origin")
+lockpick = NodePath("lockpick")
+lockpick_target = NodePath("lockpick_target")
+lockpick_speed = 10.0
+number_of_tumblers = 1
+
+[node name="back_of_lock" type="MeshInstance3D" parent="." unique_id=1362768241]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 3.3551323, -1)
+material_override = SubResource("StandardMaterial3D_x2tnk")
+mesh = SubResource("PlaneMesh_jxv33")
+
+[node name="back_of_lock2" type="MeshInstance3D" parent="." unique_id=114253915]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 7.355132, 0)
+material_override = SubResource("StandardMaterial3D_x2tnk")
+mesh = SubResource("BoxMesh_j7llt")
+
+[node name="lockpick" parent="." unique_id=1367998247 instance=ExtResource("3_52hjv")]
+
+[node name="tumbler_origin" type="Node3D" parent="." unique_id=832391517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+
+[node name="lockpick_target" type="Node3D" parent="." unique_id=1845479418]
